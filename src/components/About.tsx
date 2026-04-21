@@ -6,7 +6,7 @@ const lines = [
   { p: "$ cat interests.txt", out: "cybersecurity, CTF, web pentesting,\nnetwork analysis, Python scripting" },
   { p: "$ status", out: "actively_hunting_flags" },
   { p: "$ cat target.txt", out: "red_teaming, adversarial_ops" },
-  { p: "$ cat education.txt", out: "B.Tech CS · LPU · 2025–2029" },
+  { p: "$ cat education.txt", out: "B.Tech CSE · LPU · 2025–2029" },
   { p: "$ nmap --scan self", out: "ports open: curiosity, persistence, offense" },
 ];
 

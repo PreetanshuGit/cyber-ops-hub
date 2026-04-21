@@ -6,7 +6,7 @@ const lines = [
   { p: "$ cat interests.txt", out: "cybersecurity, CTF, web pentesting,\nnetwork analysis, Python scripting" },
   { p: "$ status", out: "actively_hunting_flags" },
   { p: "$ cat target.txt", out: "red_teaming, adversarial_ops" },
-  { p: "$ cat education.txt", out: "B.Tech CS · LPU · 2025–2029" },
+  { p: "$ cat education.txt", out: "B.Tech CSE · LPU · 2025–2029" },
   { p: "$ nmap --scan self", out: "ports open: curiosity, persistence, offense" },
 ];
 
@@ -86,7 +86,7 @@ export const About = () => {
             NOT JUST <br /> A STUDENT.
           </h2>
           <p className="font-mono text-sm md:text-base text-foreground/80 leading-relaxed max-w-3xl mb-12">
-            1st-year B.Tech CS student with one target: Red Team. I don't just learn how systems work —
+            1st-year B.Tech CSE student with one target: Red Team. I don't just learn how systems work —
             I learn how they fail. CTFs are the training ground, but the endgame is adversarial thinking
             at a professional level. Offense is how I see the world.
           </p>

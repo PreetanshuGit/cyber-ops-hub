@@ -23,7 +23,7 @@ export const EmberParticles = () => {
       shape: { type: "circle" },
       opacity: {
         value: { min: 0.2, max: 0.9 },
-        animation: { enable: true, speed: 0.6, startValue: "max", destroy: "min" },
+        animation: { enable: true, speed: 0.6, startValue: "max", destroy: "min", count: 0 },
       },
       size: { value: { min: 1, max: 4 } },
       move: {
@@ -34,7 +34,7 @@ export const EmberParticles = () => {
         random: true,
         outModes: { default: "out", top: "destroy", bottom: "none" },
       },
-      life: { duration: { value: { min: 4, max: 9 } }, count: 1 },
+      life: { duration: { value: { min: 4, max: 9 }, sync: false }, count: 0 },
     },
     emitters: [
       {
@@ -42,6 +42,7 @@ export const EmberParticles = () => {
         rate: { delay: 0.05, quantity: 3 },
         position: { x: 50, y: 110 },
         size: { width: 100, height: 0 },
+        life: { count: 0, duration: 0, delay: 0 },
       },
     ],
     interactivity: {

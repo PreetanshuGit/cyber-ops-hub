@@ -18,12 +18,12 @@ export const EmberParticles = () => {
     fpsLimit: 60,
     detectRetina: true,
     particles: {
-      number: { value: 200, density: { enable: true, width: 1200, height: 800 } },
+      number: { value: 220, density: { enable: true, width: 1200, height: 800 } },
       color: { value: ["#ff4d00", "#ff8c00", "#ffcc00", "#ff2200"] },
       shape: { type: "circle" },
       opacity: {
         value: { min: 0.2, max: 0.9 },
-        animation: { enable: true, speed: 0.6, startValue: "max", destroy: "min", count: 0 },
+        animation: { enable: true, speed: 0.6, startValue: "max", destroy: "none", sync: false },
       },
       size: { value: { min: 1, max: 4 } },
       move: {
@@ -32,9 +32,8 @@ export const EmberParticles = () => {
         speed: { min: 0.4, max: 1.6 },
         straight: false,
         random: true,
-        outModes: { default: "out", top: "destroy", bottom: "none" },
+        outModes: { default: "out", top: "out", bottom: "none" },
       },
-      life: { duration: { value: { min: 4, max: 9 }, sync: false }, count: 0 },
     },
     emitters: [
       {

@@ -110,8 +110,8 @@ export const CTF = () => {
         >
           {[
             { n: "03+", l: "CTFs Entered" },
-            { n: "20+", l: "Challenges Solved" },
-            { n: "TOP 30%", l: "Best Placement" },
+            { n: "TOP 4", l: "Best Placement" },
+            { n: "50+", l: "Competitors Beaten" },
           ].map((s, i) => (
             <div
               key={i}

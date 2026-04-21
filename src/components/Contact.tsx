@@ -1,0 +1,120 @@
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail, MessageSquare, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
+
+const links = [
+  { icon: Github, label: "GitHub", value: "github.com/parallax", href: "#" },
+  { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/preetanshu", href: "#" },
+  { icon: Mail, label: "Email", value: "preetanshu@parallax.dev", href: "#" },
+  { icon: MessageSquare, label: "Discord", value: "@parallax", href: "#" },
+];
+
+export const Contact = () => {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.name || !form.email || !form.message) {
+      toast.error("All fields required.", { description: "> connection_aborted" });
+      return;
+    }
+    toast.success("Message transmitted.", { description: "> awaiting_response..." });
+    setForm({ name: "", email: "", message: "" });
+  };
+
+  return (
+    <section id="contact" className="relative py-32 border-t border-border">
+      <div className="container mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <div className="text-primary font-mono text-xs tracking-widest mb-4">
+            06 / ESTABLISH_CONNECTION
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Left */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="font-display text-6xl md:text-8xl leading-none mb-6">
+              LET'S <br /> TALK.
+            </h2>
+            <p className="font-mono text-sm text-muted-foreground max-w-md mb-12">
+              Whether it's CTFs, collabs, or just talking infosec — I'm here.
+            </p>
+
+            <ul className="space-y-4">
+              {links.map((l, i) => {
+                const Icon = l.icon;
+                return (
+                  <li key={i}>
+                    <a
+                      href={l.href}
+                      className="group flex items-center gap-4 font-mono text-sm md:text-base text-foreground/80 hover:text-primary transition-colors"
+                    >
+                      <ArrowRight className="h-4 w-4 text-primary group-hover:translate-x-1 transition-transform" />
+                      <span className="text-muted-foreground">{l.label}:</span>
+                      <span className="group-hover:underline underline-offset-4 decoration-primary">
+                        {l.value}
+                      </span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </motion.div>
+
+          {/* Right — form */}
+          <motion.form
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            onSubmit={submit}
+            className="space-y-8 lg:pt-8"
+          >
+            {(["name", "email", "message"] as const).map((field) => (
+              <div key={field}>
+                <label className="block font-mono text-xs text-secondary mb-2">
+                  &gt; {field}:
+                </label>
+                {field === "message" ? (
+                  <textarea
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    rows={5}
+                    className="terminal-input w-full font-mono text-sm text-foreground py-2 resize-none"
+                    placeholder="initiate transmission..."
+                  />
+                ) : (
+                  <input
+                    type={field === "email" ? "email" : "text"}
+                    value={form[field]}
+                    onChange={(e) => setForm({ ...form, [field]: e.target.value })}
+                    className="terminal-input w-full font-mono text-sm text-foreground py-2"
+                    placeholder={field === "email" ? "user@host.tld" : "identify yourself"}
+                  />
+                )}
+              </div>
+            ))}
+
+            <button
+              type="submit"
+              className="w-full bg-primary text-primary-foreground font-display text-xl tracking-widest py-4 hover:scale-[0.98] transition-transform glow-primary"
+            >
+              SEND_MESSAGE.EXE
+            </button>
+          </motion.form>
+        </div>
+      </div>
+    </section>
+  );
+};

@@ -64,7 +64,7 @@ const stats = [
   { n: "02", l: "Semesters completed" },
   { n: "∞", l: "Hours debugging" },
   { n: "CTF", l: "Active competitor" },
-  { n: "DEL", l: "Based in Delhi, India" },
+  { n: "UP", l: "Based in Uttar Pradesh, India" },
 ];
 
 export const About = () => {
@@ -87,9 +87,9 @@ export const About = () => {
               NOT JUST <br /> A STUDENT.
             </h2>
             <p className="font-mono text-sm md:text-base text-foreground/80 leading-relaxed max-w-xl mb-12">
-              I'm Preetanshu — a 2nd-year B.Tech Computer Science student obsessed with how systems break.
-              I live in CTF competitions, dig into vulnerabilities, and build tools that solve real problems.
-              Cybersecurity isn't just my field — it's my mindset.
+              1st-year B.Tech CS student with one target: Red Team. I don't just learn how systems work —
+              I learn how they fail. CTFs are the training ground, but the endgame is adversarial thinking
+              at a professional level. Offense is how I see the world.
             </p>
 
             <div className="grid grid-cols-2 gap-px bg-border max-w-xl">

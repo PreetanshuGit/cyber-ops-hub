@@ -3,16 +3,22 @@ import { Flag, Terminal } from "lucide-react";
 
 const events = [
   {
-    date: "2025",
-    event: "Xploit404 CTF",
-    desc: "BASE 350 Challenge — 250pts (Medium)",
+    date: "Nov 2025",
+    event: "CTF ENCRYPTED",
+    desc: "ThunderCipher Platform · Rank 9 / 50+ teams · Team problem-solving across crypto and forensics challenges.",
     icon: Flag,
   },
   {
-    date: "2025",
-    event: "HackAI Season 2",
-    desc: "Placement Guardian Hackathon participant",
-    icon: Terminal,
+    date: "Jan 2026",
+    event: "TRIVANA CTF",
+    desc: "Rank 4 / 50+ teams — solo participation. No team, no problem.",
+    icon: Flag,
+  },
+  {
+    date: "Apr 2026",
+    event: "XPLOIT404 CTF",
+    desc: "Hosted by CSEMA · Rank 4 / 50+ teams · Tackled MLE Web Hard challenge worth 300pts.",
+    icon: Flag,
   },
   {
     date: "TBD",

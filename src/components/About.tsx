@@ -86,7 +86,7 @@ export const About = () => {
             NOT JUST <br /> A STUDENT.
           </h2>
           <p className="font-mono text-sm md:text-base text-foreground/80 leading-relaxed max-w-3xl mb-12">
-            1st-year B.Tech CS student with one target: Red Team. I don't just learn how systems work —
+            1st-year B.Tech CSE student with one target: Red Team. I don't just learn how systems work —
             I learn how they fail. CTFs are the training ground, but the endgame is adversarial thinking
             at a professional level. Offense is how I see the world.
           </p>

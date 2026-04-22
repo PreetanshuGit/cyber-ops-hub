@@ -91,7 +91,9 @@ export const Projects = () => {
                 Things I've built that might keep a sysadmin up at night.
               </p>
             </div>
-            <SystemWidget />
+            <div className="pt-0">
+              <SystemWidget />
+            </div>
           </div>
         </motion.div>
 

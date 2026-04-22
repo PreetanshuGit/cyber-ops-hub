@@ -2,12 +2,13 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, MessageSquare, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { LINKS } from "@/config/links";
 
 const links = [
-  { icon: Github, label: "GitHub", value: "github.com/parallax", href: "#" },
-  { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/preetanshu", href: "#" },
-  { icon: Mail, label: "Email", value: "preetanshu@parallax.dev", href: "#" },
-  { icon: MessageSquare, label: "Discord", value: "@parallax", href: "#" },
+  { icon: Github, label: "GitHub", value: "github.com/PreetanshuGit", href: LINKS.github },
+  { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/preetanshugupta18", href: LINKS.linkedin },
+  { icon: Mail, label: "Email", value: "preetanshu.gupta18@gmail.com", href: LINKS.email },
+  { icon: MessageSquare, label: "Discord", value: "@_celestial__18", href: LINKS.discord },
 ];
 
 export const Contact = () => {
@@ -59,6 +60,8 @@ export const Contact = () => {
                   <li key={i}>
                     <a
                       href={l.href}
+                      target={l.href.startsWith("mailto:") ? undefined : "_blank"}
+                      rel="noopener noreferrer"
                       className="group flex items-center gap-4 font-mono text-sm md:text-base text-foreground/80 hover:text-primary transition-colors"
                     >
                       <ArrowRight className="h-4 w-4 text-primary group-hover:translate-x-1 transition-transform" />

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, MessageSquare, ArrowRight } from "lucide-react";
+import { Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { LINKS } from "@/config/links";
@@ -8,7 +8,7 @@ const links = [
   { icon: Github, label: "GitHub", value: "github.com/PreetanshuGit", href: LINKS.github },
   { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/preetanshugupta18", href: LINKS.linkedin },
   { icon: Mail, label: "Email", value: "preetanshu.gupta18@gmail.com", href: LINKS.email },
-  { icon: MessageSquare, label: "Discord", value: "@_celestial__18", href: LINKS.discord },
+  { icon: MessageCircle, label: "Discord", value: "@_celestial__18", href: LINKS.discord },
 ];
 
 export const Contact = () => {
@@ -54,7 +54,10 @@ export const Contact = () => {
             </p>
 
             <ul className="space-y-4">
-              {links.map((l, i) => (
+              {links.map((l, i) => {
+                const Icon = l.icon;
+
+                return (
                 <li key={i}>
                   <a
                     href={l.href}
@@ -62,6 +65,7 @@ export const Contact = () => {
                     rel="noopener noreferrer"
                     className="group inline-flex items-center gap-3 font-mono text-sm md:text-base text-foreground/80"
                   >
+                    <Icon size={16} className="shrink-0 text-current" />
                     <span className="text-primary transition-colors duration-200 group-hover:text-[#ff4d00]">
                       →
                     </span>
@@ -70,7 +74,8 @@ export const Contact = () => {
                     </span>
                   </a>
                 </li>
-              ))}
+                );
+              })}
             </ul>
           </motion.div>
 

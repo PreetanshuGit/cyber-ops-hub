@@ -72,9 +72,10 @@ export const CustomCursor = () => {
         ref={ringRef}
         className="pointer-events-none fixed left-0 top-0 z-[9999] h-5 w-5 rounded-full border"
         style={{
+          backgroundColor: "transparent",
           borderColor: hovering ? "#ff4d00" : "hsl(var(--primary) / 0.7)",
           borderWidth: hovering ? "2px" : "1px",
-          transform: `translate3d(-50%, -50%, 0) scale(${hovering ? 1.5 : 1})`,
+          transform: `translate3d(-50%, -50%, 0) scale(${hovering ? 1.2 : 1})`,
           transition: "transform 200ms ease, border-color 200ms ease, border-width 200ms ease",
         }}
       />

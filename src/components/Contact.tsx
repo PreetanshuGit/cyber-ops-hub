@@ -2,12 +2,13 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, MessageSquare, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { LINKS } from "@/config/links";
 
 const links = [
-  { icon: Github, label: "GitHub", value: "github.com/parallax", href: "#" },
-  { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/preetanshu", href: "#" },
-  { icon: Mail, label: "Email", value: "preetanshu@parallax.dev", href: "#" },
-  { icon: MessageSquare, label: "Discord", value: "@parallax", href: "#" },
+  { icon: Github, label: "GitHub", value: "github.com/PreetanshuGit", href: LINKS.github },
+  { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/preetanshugupta18", href: LINKS.linkedin },
+  { icon: Mail, label: "Email", value: "preetanshu.gupta18@gmail.com", href: LINKS.email },
+  { icon: MessageSquare, label: "Discord", value: "@_celestial__18", href: LINKS.discord },
 ];
 
 export const Contact = () => {

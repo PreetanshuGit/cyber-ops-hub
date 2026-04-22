@@ -60,6 +60,8 @@ export const Contact = () => {
                   <li key={i}>
                     <a
                       href={l.href}
+                      target={l.href.startsWith("mailto:") ? undefined : "_blank"}
+                      rel="noopener noreferrer"
                       className="group flex items-center gap-4 font-mono text-sm md:text-base text-foreground/80 hover:text-primary transition-colors"
                     >
                       <ArrowRight className="h-4 w-4 text-primary group-hover:translate-x-1 transition-transform" />

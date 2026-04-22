@@ -54,25 +54,23 @@ export const Contact = () => {
             </p>
 
             <ul className="space-y-4">
-              {links.map((l, i) => {
-                const Icon = l.icon;
-                return (
-                  <li key={i}>
-                    <a
-                      href={l.href}
-                      target={l.href.startsWith("mailto:") ? undefined : "_blank"}
-                      rel="noopener noreferrer"
-                      className="group flex items-center gap-4 font-mono text-sm md:text-base text-foreground/80 hover:text-primary transition-colors"
-                    >
-                      <ArrowRight className="h-4 w-4 text-primary group-hover:translate-x-1 transition-transform" />
-                      <span className="text-muted-foreground">{l.label}:</span>
-                      <span className="group-hover:underline underline-offset-4 decoration-primary">
-                        {l.value}
-                      </span>
-                    </a>
-                  </li>
-                );
-              })}
+              {links.map((l, i) => (
+                <li key={i}>
+                  <a
+                    href={l.href}
+                    target={l.href.startsWith("mailto:") ? undefined : "_blank"}
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-3 font-mono text-sm md:text-base text-foreground/80"
+                  >
+                    <span className="text-primary transition-colors duration-200 group-hover:text-[#ff4d00]">
+                      →
+                    </span>
+                    <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary">
+                      {l.label}
+                    </span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
@@ -111,7 +109,7 @@ export const Contact = () => {
 
             <button
               type="submit"
-              className="w-full bg-primary text-primary-foreground font-display text-xl tracking-widest py-4 hover:scale-[0.98] transition-transform glow-primary"
+              className="glitch-hover w-full bg-primary text-primary-foreground font-display text-xl tracking-widest py-4 hover:scale-[0.98] transition-transform glow-primary"
             >
               SEND_MESSAGE.EXE
             </button>

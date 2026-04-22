@@ -109,7 +109,7 @@ export const Contact = () => {
 
             <button
               type="submit"
-              className="w-full bg-primary text-primary-foreground font-display text-xl tracking-widest py-4 hover:scale-[0.98] transition-transform glow-primary"
+              className="glitch-hover w-full bg-primary text-primary-foreground font-display text-xl tracking-widest py-4 hover:scale-[0.98] transition-transform glow-primary"
             >
               SEND_MESSAGE.EXE
             </button>

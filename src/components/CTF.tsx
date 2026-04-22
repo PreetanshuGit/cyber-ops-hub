@@ -61,8 +61,8 @@ export const CTF = () => {
             whileInView={{ scaleY: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            style={{ transformOrigin: "top" }}
-            className="absolute left-[18px] md:left-[140px] top-0 bottom-0 w-px border-l border-dashed border-primary/40"
+            style={{ transformOrigin: "top", borderColor: "#ff4d00" }}
+            className="absolute left-[18px] md:left-[140px] top-0 bottom-0 border-l-2 border-dashed"
           />
 
           <ul className="space-y-10">

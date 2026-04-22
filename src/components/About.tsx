@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const lines = [
   { p: "$ whoami", out: "preetanshu_gupta" },
@@ -10,14 +10,38 @@ const lines = [
   { p: "$ nmap --scan self", out: "ports open: curiosity, persistence, offense" },
 ];
 
+const CHAR_DELAY = 60;
+const PAUSE_AFTER_CMD = 400;
+const PAUSE_AFTER_OUT = 600;
+
 const Typewriter = () => {
+  const containerRef = useRef<HTMLPreElement>(null);
+  const [started, setStarted] = useState(false);
   const [step, setStep] = useState(0);
   const [text, setText] = useState("");
 
   useEffect(() => {
+    if (!containerRef.current) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            setStarted(true);
+            obs.disconnect();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    obs.observe(containerRef.current);
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!started) return;
     if (step >= lines.length * 2) return;
-    const idx = Math.floor(step / 2);
     const isOut = step % 2 === 1;
+    const idx = Math.floor(step / 2);
     const target = isOut ? lines[idx].out : lines[idx].p;
     let i = 0;
     setText("");
@@ -26,31 +50,37 @@ const Typewriter = () => {
       setText(target.slice(0, i));
       if (i >= target.length) {
         clearInterval(interval);
-        setTimeout(() => {
-          setStep((s) => s + 1);
-        }, isOut ? 600 : 200);
+        setTimeout(() => setStep((s) => s + 1), isOut ? PAUSE_AFTER_OUT : PAUSE_AFTER_CMD);
       }
-    }, isOut ? 18 : 45);
+    }, CHAR_DELAY);
     return () => clearInterval(interval);
-  }, [step]);
+  }, [step, started]);
+
+  const completed = Math.floor(step / 2);
+  const currentIdx = Math.floor(step / 2);
+  const showingOut = step % 2 === 1;
 
   return (
-    <pre className="font-mono text-[13px] leading-relaxed text-terminal whitespace-pre-wrap">
-      {lines.slice(0, Math.floor(step / 2)).map((l, i) => (
-        <span key={i}>
+    <pre ref={containerRef} className="font-mono text-[13px] leading-relaxed text-terminal whitespace-pre-wrap">
+      {lines.slice(0, completed).map((l, i) => (
+        <span
+          key={i}
+          style={{ animation: "fade-in 300ms ease both" }}
+          className="block"
+        >
           <span className="text-foreground/80">{l.p}</span>
           {"\n"}
           <span className="text-terminal">{`> ${l.out.replace(/\n/g, "\n> ")}`}</span>
           {"\n\n"}
         </span>
       ))}
-      {step < lines.length * 2 && (
-        <span>
-          {step % 2 === 0 ? (
+      {started && step < lines.length * 2 && (
+        <span style={{ animation: "fade-in 300ms ease both" }} className="block">
+          {!showingOut ? (
             <span className="text-foreground/80">{text}</span>
           ) : (
             <>
-              <span className="text-foreground/80">{lines[Math.floor(step / 2)].p}</span>
+              <span className="text-foreground/80">{lines[currentIdx].p}</span>
               {"\n"}
               <span className="text-terminal">{`> ${text.replace(/\n/g, "\n> ")}`}</span>
             </>

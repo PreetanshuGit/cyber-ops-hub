@@ -176,6 +176,21 @@
     50% { box-shadow: 0 0 24px 2px hsl(var(--secondary) / 0.5), inset 0 0 0 1px hsl(var(--secondary)); }
   }
 
+  .avatar-ring-hover {
+    transition: box-shadow 200ms ease, transform 200ms ease, border-color 200ms ease;
+  }
+  .avatar-ring-hover:hover {
+    animation: avatarRingPulse 1.4s ease-in-out infinite;
+  }
+  @keyframes avatarRingPulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 hsl(var(--primary) / 0.35), 0 0 0 0 hsl(var(--primary) / 0.18);
+    }
+    50% {
+      box-shadow: 0 0 0 3px hsl(var(--primary) / 0.14), 0 0 20px 1px hsl(var(--primary) / 0.45);
+    }
+  }
+
   .terminal-input {
     background: transparent;
     border: none;

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-scroll";
+import navbarAvatar from "@/assets/navbar-avatar.jpg";
 
 const links = [
   { id: "home", label: "Home" },
@@ -43,8 +44,13 @@ export const Navbar = () => {
           }}
         >
           <div className="container mx-auto flex items-center justify-between py-3">
-            <div className="font-display text-2xl tracking-widest text-primary">
-              PG<span className="blink">_</span>
+            <div className="avatar-ring-hover h-9 w-9 overflow-hidden rounded-full border-[1.5px] border-primary/90">
+              <img
+                src={navbarAvatar}
+                alt="Preetanshu Gupta avatar"
+                className="h-full w-full object-cover"
+                loading="eager"
+              />
             </div>
             <div className="hidden md:flex items-center gap-6 text-xs uppercase tracking-[0.2em] font-label">
               {links.map((l) => (

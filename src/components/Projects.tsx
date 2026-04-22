@@ -1,5 +1,30 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Lock } from "lucide-react";
+import { useEffect, useState } from "react";
+
+const SystemWidget = () => {
+  const [uptime, setUptime] = useState(0);
+  useEffect(() => {
+    const start = Date.now();
+    const id = setInterval(() => setUptime(Math.floor((Date.now() - start) / 1000)), 1000);
+    return () => clearInterval(id);
+  }, []);
+  const fmt = (s: number) => {
+    const h = String(Math.floor(s / 3600)).padStart(2, "0");
+    const m = String(Math.floor((s % 3600) / 60)).padStart(2, "0");
+    const sec = String(s % 60).padStart(2, "0");
+    return `${h}:${m}:${sec}`;
+  };
+  return (
+    <div className="font-mono text-[11px] text-muted-foreground leading-relaxed text-right">
+      <div>SYSTEM: ONLINE</div>
+      <div>
+        UPTIME: <span className="text-primary">{fmt(uptime)}</span>
+      </div>
+      <div>THREAT LVL: ELEVATED</div>
+    </div>
+  );
+};
 
 type Project = {
   num: string;

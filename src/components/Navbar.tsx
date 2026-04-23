@@ -44,15 +44,12 @@ export const Navbar = () => {
           }}
         >
           <div className="container mx-auto flex items-center justify-between py-3">
-            <div
-              className="avatar-ring-hover h-[42px] w-[42px] overflow-hidden rounded-full border-[3px] border-solid border-primary"
-              style={{ boxShadow: "0 0 12px hsl(var(--primary) / 0.6)" }}
-            >
+            <div className="avatar-ring-hover h-[42px] w-[42px] overflow-hidden rounded-full">
               <img
                 src={navbarAvatar}
                 alt="Preetanshu Gupta avatar"
                 className="h-full w-full object-cover"
-                style={{ filter: "brightness(1.7) contrast(1.1)" }}
+                style={{ filter: "brightness(2.0) contrast(1.2) saturate(1.5)" }}
                 loading="eager"
                 fetchPriority="high"
               />

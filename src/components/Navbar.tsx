@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-scroll";
-import navbarAvatar from "@/assets/navbar-avatar.jpg";
+import navbarAvatar from "@/assets/avatar.jpg";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 
 const links = [
@@ -61,18 +61,17 @@ export const Navbar = () => {
               <HoverCardContent
                 side="bottom"
                 sideOffset={12}
-                className="w-auto rounded-md border border-border bg-surface p-3 text-foreground duration-200"
+                className="w-auto rounded-lg border border-border bg-surface p-3 text-foreground duration-200"
               >
                 <div className="flex flex-col items-center gap-3">
                   <img
                     src={navbarAvatar}
                     alt="ParallaX avatar"
                     className="h-[120px] w-[120px] rounded-full object-cover"
-                    style={{ filter: "brightness(2.0) contrast(1.2) saturate(1.5)" }}
                   />
                   <div className="flex flex-col items-center gap-1 text-center">
-                    <div className="font-mono text-sm text-primary">alias: ParallaX</div>
-                    <div className="font-mono text-xs text-muted-foreground">// not a cat</div>
+                    <div className="font-mono text-[13px] text-primary">alias: ParallaX</div>
+                    <div className="font-mono text-[11px] text-muted-foreground">// not a cat</div>
                   </div>
                 </div>
               </HoverCardContent>

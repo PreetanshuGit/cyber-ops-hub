@@ -86,6 +86,7 @@ export const Skills = () => {
               <li className="flex items-center justify-between">JavaScript <Proficiency level={4} /></li>
               <li className="flex items-center justify-between">C / C++ <Proficiency level={3} /></li>
               <li className="flex items-center justify-between">Bash <Proficiency level={4} /></li>
+              <li className="flex items-center justify-between">Linux <Proficiency level={4} /></li>
             </ul>
           </motion.div>
 

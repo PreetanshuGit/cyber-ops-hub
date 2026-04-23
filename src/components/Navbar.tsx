@@ -54,7 +54,7 @@ export const Navbar = () => {
                 className="h-full w-full object-cover"
                 style={{ filter: "brightness(1.7) contrast(1.1)" }}
                 loading="eager"
-                fetchpriority="high"
+                fetchPriority="high"
               />
             </div>
             <div className="hidden md:flex items-center gap-6 text-xs uppercase tracking-[0.2em] font-label">

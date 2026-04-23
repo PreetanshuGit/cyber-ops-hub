@@ -3,34 +3,37 @@ import { Award, ArrowRight } from "lucide-react";
 
 const certs = [
   {
-    issuer: "Google",
-    name: "Cybersecurity Certificate",
-    date: "2024",
-    status: "ACTIVE",
-  },
-  {
-    issuer: "TryHackMe",
-    name: "Pre Security Path",
-    date: "2024",
+    issuer: "LEARN FOUNDATION ONLINE",
+    name: "INDIAN LAWS: KNOW YOUR RIGHTS",
+    date: "Oct 2025",
     status: "COMPLETED",
+    verifyUrl: "https://learnfoundationonline.com/",
   },
   {
-    issuer: "HackTheBox",
-    name: "Starting Point",
+    issuer: "INFOSYS SPRINGBOARD",
+    name: "INTRODUCTION TO CYBER SECURITY",
+    date: "Mar 2026",
+    status: "COMPLETED",
+    verifyUrl: "https://verify.onwingspan.com",
+  },
+  {
+    issuer: "TUTEDUDE",
+    name: "PYTHON PROGRAMMING",
     date: "2025",
-    status: "ACTIVE",
-  },
-  {
-    issuer: "Cisco",
-    name: "Intro to Cybersecurity",
-    date: "2024",
     status: "COMPLETED",
   },
   {
-    issuer: "[ ADD YOURS ]",
-    name: "Placeholder Credential",
-    date: "TBD",
-    status: "PENDING",
+    issuer: "TUTEDUDE",
+    name: "WEB DEVELOPMENT — MERN STACK",
+    date: "2025",
+    status: "COMPLETED",
+  },
+  {
+    issuer: "CISCO NETWORKING ACADEMY",
+    name: "ETHICAL HACKER",
+    date: "In Progress",
+    status: "ACTIVE",
+    verifyUrl: "https://www.netacad.com/courses/ethical-hacker",
   },
 ];
 
@@ -60,7 +63,7 @@ export const Certificates = () => {
           <div className="flex gap-4 min-w-max">
             {certs.map((c, i) => (
               <motion.div
-                key={i}
+                key={`${c.issuer}-${c.name}`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -70,7 +73,7 @@ export const Certificates = () => {
                 <div
                   className={`absolute top-3 right-3 font-mono text-[9px] tracking-widest px-2 py-1 ${
                     c.status === "ACTIVE"
-                      ? "bg-primary/15 text-primary border border-primary/40"
+                      ? "bg-secondary/10 text-secondary border border-secondary/40"
                       : c.status === "COMPLETED"
                       ? "bg-secondary/10 text-secondary border border-secondary/40"
                       : "bg-muted text-muted-foreground border border-border"
@@ -88,9 +91,16 @@ export const Certificates = () => {
                 <div className="font-mono text-xs text-muted-foreground mb-6">
                   Issued · {c.date}
                 </div>
-                <button className="cursor-none flex items-center gap-2 font-mono text-xs text-foreground/80 hover:text-secondary transition-colors">
-                  VERIFY <ArrowRight className="h-3 w-3" />
-                </button>
+                {c.verifyUrl ? (
+                  <a
+                    href={c.verifyUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="cursor-none inline-flex items-center gap-2 font-mono text-xs text-foreground/80 hover:text-secondary transition-colors"
+                  >
+                    VERIFY <ArrowRight className="h-3 w-3" />
+                  </a>
+                ) : null}
               </motion.div>
             ))}
           </div>

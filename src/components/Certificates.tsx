@@ -71,14 +71,21 @@ export const Certificates = () => {
                 className="group relative w-[280px] bg-surface border border-border rounded-md p-6 hover:border-primary transition-colors"
               >
                 <div
-                  className={`absolute top-3 right-3 font-mono text-[9px] tracking-widest px-2 py-1 ${
+                  className={`absolute top-3 right-3 font-mono text-[9px] tracking-widest px-2 py-1 flex items-center gap-1 ${
                     c.status === "ACTIVE"
-                      ? "bg-secondary/10 text-secondary border border-secondary/40"
+                      ? "bg-transparent text-primary border border-primary"
                       : c.status === "COMPLETED"
                       ? "bg-secondary/10 text-secondary border border-secondary/40"
                       : "bg-muted text-muted-foreground border border-border"
                   }`}
                 >
+                  {c.status === "ACTIVE" && (
+                    <motion.span
+                      className="inline-block w-1.5 h-1.5 rounded-full bg-primary"
+                      animate={{ opacity: [1, 0.2, 1] }}
+                      transition={{ duration: 1.2, ease: "easeInOut", repeat: Infinity }}
+                    />
+                  )}
                   {c.status}
                 </div>
                 <Award className="h-8 w-8 text-primary mb-6" />

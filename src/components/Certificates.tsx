@@ -3,11 +3,11 @@ import { Award, ArrowRight } from "lucide-react";
 
 const certs = [
   {
-    issuer: "LEARN FOUNDATION ONLINE",
-    name: "INDIAN LAWS: KNOW YOUR RIGHTS",
-    date: "Oct 2025",
-    status: "COMPLETED",
-    verifyUrl: "https://learnfoundationonline.com/",
+    issuer: "CISCO NETWORKING ACADEMY",
+    name: "ETHICAL HACKER",
+    date: "In Progress",
+    status: "ACTIVE",
+    verifyUrl: "https://www.netacad.com/courses/ethical-hacker",
   },
   {
     issuer: "INFOSYS SPRINGBOARD",
@@ -18,22 +18,22 @@ const certs = [
   },
   {
     issuer: "TUTEDUDE",
-    name: "PYTHON PROGRAMMING",
-    date: "2025",
-    status: "COMPLETED",
-  },
-  {
-    issuer: "TUTEDUDE",
     name: "WEB DEVELOPMENT — MERN STACK",
     date: "2025",
     status: "COMPLETED",
   },
   {
-    issuer: "CISCO NETWORKING ACADEMY",
-    name: "ETHICAL HACKER",
-    date: "In Progress",
-    status: "ACTIVE",
-    verifyUrl: "https://www.netacad.com/courses/ethical-hacker",
+    issuer: "TUTEDUDE",
+    name: "PYTHON PROGRAMMING",
+    date: "2025",
+    status: "COMPLETED",
+  },
+  {
+    issuer: "LEARN FOUNDATION ONLINE",
+    name: "INDIAN LAWS: KNOW YOUR RIGHTS",
+    date: "Oct 2025",
+    status: "COMPLETED",
+    verifyUrl: "https://learnfoundationonline.com/",
   },
 ];
 
@@ -69,6 +69,14 @@ export const Certificates = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
                 className="group relative w-[280px] bg-surface border border-border rounded-md p-6 hover:border-primary transition-colors"
+                style={{
+                  boxShadow:
+                    c.status === "ACTIVE"
+                      ? "0 0 12px hsl(var(--primary) / 0.25)"
+                      : c.status === "COMPLETED"
+                      ? "0 0 12px hsl(var(--secondary) / 0.15)"
+                      : undefined,
+                }}
               >
                 <div
                   className={`absolute top-3 right-3 font-mono text-[9px] tracking-widest px-2 py-1 flex items-center gap-1 ${

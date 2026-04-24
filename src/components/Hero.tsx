@@ -5,7 +5,7 @@ import { EmberParticles } from "./EmberParticles";
 
 const tickerItems = [
   "[ THREAT LEVEL: ELEVATED ]",
-  "CTF COMPETITOR",
+  "ASPIRING RED TEAMER",
   "ETHICAL HACKER",
   "PYTHON · JS · CYBERSEC",
   "[ SYSTEM STATUS: ONLINE ]",

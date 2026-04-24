@@ -80,7 +80,7 @@ export const Contact = () => {
 
             {/* Terminal status block */}
             <div
-              className="mt-10 rounded-md border p-3 px-4 font-mono text-xs leading-relaxed md:text-sm"
+              className="mt-6 w-full rounded-md border p-3 px-4 font-mono text-xs leading-relaxed md:text-sm"
               style={{ backgroundColor: "#0a0a0a", borderColor: "#1f1f1f" }}
             >
               <div className="flex items-center gap-2">
@@ -99,17 +99,16 @@ export const Contact = () => {
                 <span style={{ color: "#00ffe0" }}>&gt; RESPONSE:</span>{" "}
                 <span className="text-white">~24 HRS</span>
               </div>
-            </div>
 
-            {/* Resume download button */}
-            <a
-              href="/src/assets/resume.pdf"
-              download
-              className="mt-4 inline-flex items-center gap-2 border bg-transparent px-4 py-2 font-mono text-xs md:text-sm transition-colors duration-200 hover:bg-[rgba(255,77,0,0.15)]"
-              style={{ borderColor: "#ff4d00", color: "#ff4d00" }}
-            >
-              ⬇ download_resume.pdf
-            </a>
+              <a
+                href="/src/assets/resume.pdf"
+                download
+                className="mt-3 flex items-center justify-center gap-2 border-t pt-3 font-mono text-xs md:text-sm transition-colors duration-200 hover:bg-[rgba(255,77,0,0.15)]"
+                style={{ borderTopColor: "#1f1f1f", color: "#ff4d00" }}
+              >
+                ⬇ download_resume.pdf
+              </a>
+            </div>
           </motion.div>
 
           {/* Right — form */}

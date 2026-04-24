@@ -120,7 +120,7 @@ export const Contact = () => {
             onSubmit={submit}
             className="space-y-8 lg:pt-8"
           >
-            {(["name", "email", "message"] as const).map((field) => (
+            {(["name", "email", "subject", "message"] as const).map((field) => (
               <div key={field}>
                 <label className="block font-mono text-xs text-secondary mb-2">
                   &gt; {field}:
@@ -131,7 +131,7 @@ export const Contact = () => {
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     rows={5}
                     className="terminal-input w-full font-mono text-sm text-foreground py-2 resize-none"
-                    placeholder="initiate transmission..."
+                    placeholder="drop your message here..."
                   />
                 ) : (
                   <input
@@ -139,7 +139,13 @@ export const Contact = () => {
                     value={form[field]}
                     onChange={(e) => setForm({ ...form, [field]: e.target.value })}
                     className="terminal-input w-full font-mono text-sm text-foreground py-2"
-                    placeholder={field === "email" ? "user@host.tld" : "identify yourself"}
+                    placeholder={
+                      field === "email"
+                        ? "user@host.tld"
+                        : field === "subject"
+                        ? "reason_for_contact"
+                        : "identify yourself"
+                    }
                   />
                 )}
               </div>

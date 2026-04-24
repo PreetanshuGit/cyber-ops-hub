@@ -4,6 +4,7 @@ import { Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { LINKS } from "@/config/links";
+import resumePdf from "@/assets/resume.pdf";
 
 emailjs.init("TFYLZSGScEF1GC0yC");
 
@@ -135,7 +136,7 @@ export const Contact = () => {
               </div>
 
               <a
-                href="/src/assets/resume.pdf"
+                href={resumePdf}
                 download
                 className="mt-3 flex items-center justify-center gap-2 border-t pt-3 font-mono text-xs md:text-sm transition-colors duration-200 hover:bg-[rgba(255,77,0,0.15)]"
                 style={{ borderTopColor: "#1f1f1f", color: "#ff4d00" }}

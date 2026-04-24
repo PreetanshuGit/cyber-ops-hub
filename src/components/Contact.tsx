@@ -81,7 +81,11 @@ export const Contact = () => {
             {/* Terminal status block */}
             <div
               className="mt-6 w-full rounded-md border p-3 px-4 font-mono text-xs leading-relaxed md:text-sm"
-              style={{ backgroundColor: "#0a0a0a", borderColor: "#1f1f1f" }}
+              style={{
+                backgroundColor: "#0a0a0a",
+                borderColor: "rgba(0, 255, 224, 0.25)",
+                boxShadow: "0 0 16px rgba(0, 255, 224, 0.12), inset 0 0 16px rgba(0, 255, 224, 0.04)",
+              }}
             >
               <div className="flex items-center gap-2">
                 <span

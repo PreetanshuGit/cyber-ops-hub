@@ -22,7 +22,7 @@ const events = [
   },
   {
     date: "TBD",
-    event: "[ ADD CTF WIN ]",
+    event: "[ NEXT MISSION ]",
     desc: "Next mission incoming...",
     icon: Flag,
   },

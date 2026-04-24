@@ -1,8 +1,11 @@
+import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, MessageCircle } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { LINKS } from "@/config/links";
+
+emailjs.init("TFYLZSGScEF1GC0yC");
 
 const links = [
   { icon: Github, label: "GitHub", value: "github.com/PreetanshuGit", href: LINKS.github },
@@ -11,17 +14,44 @@ const links = [
   { icon: MessageCircle, label: "Discord", value: "@_celestial__18", href: LINKS.discord },
 ];
 
+type BtnState = "idle" | "sending" | "success" | "error";
+
 export const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [btnState, setBtnState] = useState<BtnState>("idle");
+  const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const submit = (e: React.FormEvent) => {
+  useEffect(() => () => { if (resetTimer.current) clearTimeout(resetTimer.current); }, []);
+
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.subject || !form.message) {
       toast.error("All fields required.", { description: "> connection_aborted" });
       return;
     }
-    toast.success("Message transmitted.", { description: "> awaiting_response..." });
-    setForm({ name: "", email: "", subject: "", message: "" });
+
+    setBtnState("sending");
+
+    try {
+      await emailjs.send(
+        "service_j6z2t7v",
+        "template_e7iht3q",
+        {
+          name: form.name,
+          email: form.email,
+          title: form.subject,
+          message: form.message,
+        }
+      );
+      setBtnState("success");
+      toast.success("Message transmitted.", { description: "> awaiting_response..." });
+      setForm({ name: "", email: "", subject: "", message: "" });
+    } catch {
+      setBtnState("error");
+      toast.error("Transmission failed.", { description: "> retry_connection" });
+    } finally {
+      resetTimer.current = setTimeout(() => setBtnState("idle"), 3000);
+    }
   };
 
   return (
@@ -156,9 +186,23 @@ export const Contact = () => {
 
             <button
               type="submit"
+              disabled={btnState === "sending"}
               className="glitch-hover w-full bg-primary text-primary-foreground font-display text-xl tracking-widest py-4 hover:scale-[0.98] transition-transform glow-primary"
+              style={{
+                opacity: btnState === "sending" ? 0.5 : 1,
+                color:
+                  btnState === "success"
+                    ? "#00ffe0"
+                    : btnState === "error"
+                    ? "#ff4d00"
+                    : undefined,
+                cursor: btnState === "sending" ? "not-allowed" : undefined,
+              }}
             >
-              SEND_MESSAGE.EXE
+              {btnState === "idle" && "SEND_MESSAGE.EXE"}
+              {btnState === "sending" && "TRANSMITTING..."}
+              {btnState === "success" && "> MESSAGE_SENT ✓"}
+              {btnState === "error" && "> TRANSMISSION_FAILED ✗"}
             </button>
           </motion.form>
         </div>

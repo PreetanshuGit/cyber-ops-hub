@@ -42,7 +42,7 @@ const projects: Project[] = [
     name: "URBANSQUARE",
     desc: "AI-integrated home services platform. Photo-based emergency detection, agent dispatch under 5 mins, dynamic pricing, dual dashboards for customers and employees.",
     stack: ["React", "AI", "Dynamic Pricing", "Node.js"],
-    github: "https://github.com/PreetanshuGit/home-service-hub-main.git",
+    github: "https://github.com/PreetanshuGit/home-service-hub-main",
     note: "Built @ Web-A-Thon 2.0 · 24hr hackathon · Qualified 3/4 rounds",
   },
   {
@@ -50,7 +50,7 @@ const projects: Project[] = [
     name: "PROFILE GUARDIAN",
     desc: "Social media authenticity analyzer. Detects fake accounts, bots, and inauthentic behavior across Instagram, X, and Reddit.",
     stack: ["Python", "Scraping", "ML", "Social Analysis"],
-    github: "https://github.com/PreetanshuGit/profile-guardian.git",
+    github: "https://github.com/PreetanshuGit/profile-guardian",
     note: "Built @ Prompt Builder 2.0 · 12hr hackathon",
   },
   {
@@ -58,7 +58,7 @@ const projects: Project[] = [
     name: "PLACEMENT GUARDIAN",
     desc: "Agentic AI placement coach. Enter your profile, get a personalized roadmap — DSA, courses, interview prep — guided by a ReAct-style AI agent.",
     stack: ["FastAPI", "Python", "SQLite", "React", "Agentic AI"],
-    github: "https://github.com/PreetanshuGit/HackAI.git",
+    github: "https://github.com/PreetanshuGit/HackAI",
     note: "Built @ HackAI Season 2 · 24hr hackathon",
   },
   {

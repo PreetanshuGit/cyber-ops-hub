@@ -12,16 +12,16 @@ const links = [
 ];
 
 export const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.message) {
+    if (!form.name || !form.email || !form.subject || !form.message) {
       toast.error("All fields required.", { description: "> connection_aborted" });
       return;
     }
     toast.success("Message transmitted.", { description: "> awaiting_response..." });
-    setForm({ name: "", email: "", message: "" });
+    setForm({ name: "", email: "", subject: "", message: "" });
   };
 
   return (

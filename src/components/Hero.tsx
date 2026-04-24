@@ -5,7 +5,7 @@ import { EmberParticles } from "./EmberParticles";
 
 const tickerItems = [
   "[ THREAT LEVEL: ELEVATED ]",
-  "CTF COMPETITOR",
+  "ASPIRING RED TEAMER",
   "ETHICAL HACKER",
   "PYTHON · JS · CYBERSEC",
   "[ SYSTEM STATUS: ONLINE ]",
@@ -71,7 +71,7 @@ export const Hero = () => {
               alias: <span className="text-primary">ParallaX</span>
             </div>
             <div className="font-mono text-sm text-muted-foreground">
-              B.Tech CS · Cybersecurity Enthusiast · CTF Player
+              B.Tech CSE · Offensive Security · Aspiring Red Teamer
             </div>
           </motion.div>
 

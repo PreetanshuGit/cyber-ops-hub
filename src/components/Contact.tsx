@@ -12,16 +12,16 @@ const links = [
 ];
 
 export const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.message) {
+    if (!form.name || !form.email || !form.subject || !form.message) {
       toast.error("All fields required.", { description: "> connection_aborted" });
       return;
     }
     toast.success("Message transmitted.", { description: "> awaiting_response..." });
-    setForm({ name: "", email: "", message: "" });
+    setForm({ name: "", email: "", subject: "", message: "" });
   };
 
   return (
@@ -77,6 +77,39 @@ export const Contact = () => {
                 );
               })}
             </ul>
+
+            {/* Terminal status block */}
+            <div
+              className="mt-10 rounded-md border p-3 px-4 font-mono text-xs leading-relaxed md:text-sm"
+              style={{ backgroundColor: "#0a0a0a", borderColor: "#1f1f1f" }}
+            >
+              <div className="flex items-center gap-2">
+                <span
+                  className="inline-block h-2 w-2 rounded-full animate-pulse"
+                  style={{ backgroundColor: "#00ffe0" }}
+                />
+                <span style={{ color: "#00ffe0" }}>&gt; STATUS:</span>
+                <span className="text-white">OPEN TO OPPORTUNITIES</span>
+              </div>
+              <div>
+                <span style={{ color: "#00ffe0" }}>&gt; TYPE:</span>{" "}
+                <span className="text-white">INTERNSHIP · COLLAB · CTF TEAMS</span>
+              </div>
+              <div>
+                <span style={{ color: "#00ffe0" }}>&gt; RESPONSE:</span>{" "}
+                <span className="text-white">~24 HRS</span>
+              </div>
+            </div>
+
+            {/* Resume download button */}
+            <a
+              href="/src/assets/resume.pdf"
+              download
+              className="mt-4 inline-flex items-center gap-2 border bg-transparent px-4 py-2 font-mono text-xs md:text-sm transition-colors duration-200 hover:bg-[rgba(255,77,0,0.15)]"
+              style={{ borderColor: "#ff4d00", color: "#ff4d00" }}
+            >
+              ⬇ download_resume.pdf
+            </a>
           </motion.div>
 
           {/* Right — form */}
@@ -87,7 +120,7 @@ export const Contact = () => {
             onSubmit={submit}
             className="space-y-8 lg:pt-8"
           >
-            {(["name", "email", "message"] as const).map((field) => (
+            {(["name", "email", "subject", "message"] as const).map((field) => (
               <div key={field}>
                 <label className="block font-mono text-xs text-secondary mb-2">
                   &gt; {field}:
@@ -98,7 +131,7 @@ export const Contact = () => {
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     rows={5}
                     className="terminal-input w-full font-mono text-sm text-foreground py-2 resize-none"
-                    placeholder="initiate transmission..."
+                    placeholder="drop your message here..."
                   />
                 ) : (
                   <input
@@ -106,7 +139,13 @@ export const Contact = () => {
                     value={form[field]}
                     onChange={(e) => setForm({ ...form, [field]: e.target.value })}
                     className="terminal-input w-full font-mono text-sm text-foreground py-2"
-                    placeholder={field === "email" ? "user@host.tld" : "identify yourself"}
+                    placeholder={
+                      field === "email"
+                        ? "user@host.tld"
+                        : field === "subject"
+                        ? "reason_for_contact"
+                        : "identify yourself"
+                    }
                   />
                 )}
               </div>

@@ -70,8 +70,7 @@ export const Navbar = () => {
                     className="h-[120px] w-[120px] rounded-full object-cover"
                   />
                   <div className="flex flex-col items-center gap-1 text-center">
-                    <div className="font-mono text-[13px] text-primary">alias: ParallaX</div>
-                    <div className="font-mono text-[11px] text-muted-foreground">// not a cat</div>
+                    <div className="font-mono text-[11px] text-muted-foreground">// the building was a vulnerability</div>
                   </div>
                 </div>
               </HoverCardContent>
